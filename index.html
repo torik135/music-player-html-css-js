@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="css/style.css">k
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<title>Music Player</title>
 </head>
 <body>
@@ -13,6 +13,28 @@
 	<div class="music-container">
 		<div class="music-info">
 			<h4 class="music-title">TITLE</h4>
+			<div class="progress-container">
+				<div class="music-progress"></div>
+			</div>
+		</div>
+		
+		<audio src="mp3/music1.mp3" id="audio"></audio>
+
+		<div class="img-container">
+			<img src="img/music1.jpg" alt="music-img" id="music-img">
+		</div>
+
+
+		<div class="nav">
+			<button class="action-btn" id="prev">
+				prev
+			</button>
+			<button class="action-btn action-btn-big" id="play">
+				play
+			</button>
+			<button class="action-btn" id="next">
+				next
+			</button>
 		</div>
 	</div>
 
