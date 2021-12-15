@@ -1,14 +1,25 @@
+/* ROOT */
 :root {
 
 	--white:  rgba(250, 250, 250, 1);
+	--white50: rgba(250, 250, 250, 0.5);
+	
+	--black: rgba(50, 50, 50, 1);
+	--black50: rgba(50, 50, 50, 0.5);
+
 	--red:  rgba(250, 100, 100, 1);
 	--blue: rgba(12, 191, 232, 1);
+
+	--gray50: rgba(100, 100, 100, 0.5);
 
 	--color-gradient1:  rgb(1, 255, 207);
 	--color-gradient2:  rgb(255, 252, 0);
 
 }
+/* ROOT END */
 
+
+/* BASE  */
 * {
 	box-sizing: border-box;
 }
@@ -28,6 +39,10 @@ html, body {
 	justify-content: center;
 }
 
+/* BASE END */
+
+
+/* MUSIC CONTAINER */
 .music-container {
 	background-color: var(--white);
 	border-radius: 15px;
@@ -39,6 +54,16 @@ html, body {
 	z-index: 10;
 }
 
+.music-container.play .img-container img {
+	/*animation-play-state: running;*/
+}
+
+.music-container.play .music-info {
+	opacity: 1;
+	transform: translateY(-100%);
+}
+
+/* IMG CONTAINER */
 .img-container {
 	position: relative;
 	width: 110px;
@@ -46,7 +71,7 @@ html, body {
 
 .img-container:after {
 	content: '';
-	background-color: white;
+	background-color: var(--white);
 	height: 20px;
 	width: 20px;
 	position: absolute;
@@ -67,6 +92,93 @@ html, body {
 	animation: rotate 4s linear infinite;
 	animation-play-state: paused;
 }
+
+/* MUSIC CONTAINER END */
+
+
+/* NAV */
+.nav {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 1;
+}
+/* NAV END */
+
+
+/* BTN */
+
+.action-btn {
+	background-color: var(--white);
+	border: 0;
+	color: var(--black50);
+	font-size: 20px;
+	cursor: pointer;
+	padding: 10px;
+	margin: 0 20px;
+}
+
+.action-btn:hover {
+	transform: scale(1.1);
+	/*text-transform: uppercase;*/
+}
+
+.action-btn:focus {
+	outline: 0;
+}
+
+.action-btn-big {
+	font-size: 30px;
+}
+
+/* BTN END */
+
+/* MUSIC INFO */
+
+.music-info {
+	background-color: var(--white50);
+	border-radius: 15px 15px 0 0;
+	position: absolute;
+	left: 20px;
+	top: 0;
+	width: calc(100% - 40px);
+	opacity: 0;
+	transform: translateY(0%);
+	padding: 10px 10px 10px 150px;
+	transition: transform 0.3s ease-in opacity 0.3s ease-in;
+}
+
+.music-info h4 {
+	margin: 0;
+}
+
+/* MUSIC INFO END */
+
+
+/* PROGRESS BAR */
+.progress-container {
+	background-color: var(--white);
+	border-radius: 5px;
+	cursor: pointer;
+	margin: 10px 0;
+	height: 4px;
+	width: 100%;
+}
+
+.music-progress {
+	background-image: linear-gradient(
+		10deg,
+		var(--color-gradient1) 23.8%,
+		var(--color-gradient2) 92%
+	);
+	height: 100%;
+	width: 0%;
+	border-radius: 15px;
+	transition: width 0.1s linear;
+}
+
+/* PROGRESS BAR END */
+
 
 @keyframes rotate {
 	from{
